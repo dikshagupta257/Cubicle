@@ -17,7 +17,7 @@
             android:id="@+id/toolbarAddTask"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/colorPrimary"
+            android:background="@color/purple_400"
             android:theme="@style/AppTheme.PopupOverlay"
             app:title="User Profile"
             app:titleTextColor="@android:color/white" />
@@ -40,7 +40,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Name"
                 android:textStyle="bold"
-                android:textColor="@color/teal_700"
+                android:textColor="@color/pink_400"
                 android:textSize="16sp" />
 
             <TextView
@@ -63,7 +63,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Phone Number"
                 android:textStyle="bold"
-                android:textColor="@color/teal_700"
+                android:textColor="@color/pink_400"
                 android:textSize="16sp" />
 
             <TextView
@@ -86,7 +86,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Department"
                 android:textStyle="bold"
-                android:textColor="@color/teal_700"
+                android:textColor="@color/pink_400"
                 android:textSize="16sp" />
 
             <TextView
@@ -109,11 +109,11 @@
                 android:layout_marginTop="16dp"
                 android:text="Joining Date"
                 android:textStyle="bold"
-                android:textColor="@color/teal_700"
+                android:textColor="@color/pink_400"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/tvUserJoiningDtae"
+                android:id="@+id/tvUserJoiningDate"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:background="@drawable/custom"
@@ -132,7 +132,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Email Id"
                 android:textStyle="bold"
-                android:textColor="@color/teal_700"
+                android:textColor="@color/pink_400"
                 android:textSize="16sp" />
 
             <TextView

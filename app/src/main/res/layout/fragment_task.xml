@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         app:titleTextColor="@android:color/white"
         app:title="Tasks"
-        android:background="?attr/colorPrimary"
+        android:background="@color/purple_400"
         android:layout_height="wrap_content" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add"
         app:tint="@android:color/white"
+        android:backgroundTint="@color/pink_400"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="32dp"

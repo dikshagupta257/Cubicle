@@ -15,12 +15,14 @@ import com.google.firebase.database.ValueEventListener
 import com.hackathon.cubicle.databinding.FragmentTaskBinding
 import com.hackathon.cubicle.employee.data.model.TaskModel
 import com.hackathon.cubicle.employee.ui.adapter.TaskAdapter
+import com.hackathon.cubicle.employee.ui.view.activity.EmployeeActivity
 
 class TaskFragment : Fragment() {
     private val list = arrayListOf<TaskModel>()
     private lateinit var taskAdapter : TaskAdapter
     private var _binding:FragmentTaskBinding?=null
     private val binding get() = _binding!!
+    private lateinit var userID :String
 
     private val dbRef by lazy{
         FirebaseDatabase.getInstance().reference
@@ -55,7 +57,10 @@ class TaskFragment : Fragment() {
 
     private fun showTasks() {
         //notify adapter and update list by taking data from firebase
-        dbRef.child("Employee tasks").addValueEventListener(object : ValueEventListener {
+        val employeeActivity = activity as EmployeeActivity
+        userID = employeeActivity.getData()
+
+        dbRef.child("Employee tasks").child(userID).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val temp = ArrayList<TaskModel>()
                 for(data: DataSnapshot in snapshot.children){

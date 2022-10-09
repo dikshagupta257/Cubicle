@@ -16,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.hackathon.cubicle.R
 import com.hackathon.cubicle.databinding.FragmentAddTaskBinding
 import com.hackathon.cubicle.employee.data.model.TaskModel
+import com.hackathon.cubicle.employee.ui.view.activity.EmployeeActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -23,7 +24,7 @@ class AddTaskFragment : Fragment(), View.OnClickListener  {
     private lateinit var navBar:BottomNavigationView
     private var _binding:FragmentAddTaskBinding?=null
     private val binding get() = _binding!!
-
+    private lateinit var userID :String
 
     private lateinit var spinnerAdapter: SpinnerAdapter
     private lateinit var myCalendar: Calendar
@@ -101,8 +102,10 @@ class AddTaskFragment : Fragment(), View.OnClickListener  {
                 binding.saveBtn.isEnabled = false
                 //add to firebase
                 val task = TaskModel(title, description, category, finalDate, finalTime, timeDuration.toLong())
-                val id = dbRef.child("Employee tasks").push().key!!
-                dbRef.child("Employee tasks").child(id).setValue(task)
+                val employeeActivity = activity as EmployeeActivity
+                userID = employeeActivity.getData()
+                val id = dbRef.child("Employee tasks").child(userID).push().key!!
+                dbRef.child("Employee tasks").child(userID).child(id).setValue(task)
                     .addOnSuccessListener {
                         Toast.makeText(requireContext(), "Task added successfully!", Toast.LENGTH_SHORT).show()
                         binding.saveBtn.isEnabled = true

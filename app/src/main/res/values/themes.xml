@@ -15,7 +15,6 @@
 
         <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
     </style>
-
     <style name="spinner_style" parent="Widget.AppCompat.Spinner">
         <item name="backgroundTint">@color/colorAccent</item>
         <item name="android:gravity">right|center</item>
