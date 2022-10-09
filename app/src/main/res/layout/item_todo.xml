@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardView"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:elevation="10dp"
+    android:layout_marginBottom="15dp"
+    app:cardCornerRadius="10dp">
+
+    <View
+        android:id="@+id/viewColorTag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="5dp"
+        android:background="@android:color/white"
+        android:paddingBottom="5dp">
+
+        <RelativeLayout
+            android:id="@+id/rvTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/txtShowTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Task Title"
+                android:layout_toStartOf="@+id/txtShowCategory"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtShowTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtShowTitle"
+                android:layout_margin="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Task Description"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/txtShowCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:maxWidth="80dp"
+                android:text="Category"
+                android:textColor="@color/litherGray"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/txtDateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtShowTask"
+                android:layout_marginTop="20dp"
+                android:text="Start Date and Time"
+                android:textColor="@color/litherGray"
+                android:textSize="12sp"
+                android:visibility="visible"/>
+            <TextView
+                android:id="@+id/txtShowDateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtDateTime"
+                android:layout_marginTop="2dp"
+                android:text="18-10-2021, 9:00 a.m"
+                android:textColor="@android:color/black"
+                android:visibility="visible"/>
+            <TextView
+                android:id="@+id/txtTimeDur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/txtShowTask"
+                android:layout_marginTop="20dp"
+                android:text="Time taken"
+                android:textColor="@color/litherGray"
+                android:textSize="12sp"
+                android:visibility="visible"/>
+            <TextView
+                android:id="@+id/txtShowTimeDur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/txtTimeDur"
+                android:layout_marginTop="2dp"
+                android:text="30 min"
+                android:textColor="@android:color/black"
+                android:visibility="visible"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

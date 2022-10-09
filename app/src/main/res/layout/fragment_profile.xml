@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".employee.ui.view.fragments.ProfileFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarAddTask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/AppTheme.PopupOverlay"
+            app:title="User Profile"
+            app:titleTextColor="@android:color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Name"
+                android:textStyle="bold"
+                android:textColor="@color/teal_700"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                tools:text = "Diksha"
+                android:background="@drawable/custom"
+                android:textSize="20sp"
+                android:hint="Name"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Phone Number"
+                android:textStyle="bold"
+                android:textColor="@color/teal_700"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvUserNo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                tools:text = "999999999"
+                android:textSize="20sp"
+                android:hint="Phone no."
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@android:color/black"
+                android:background="@drawable/custom"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Department"
+                android:textStyle="bold"
+                android:textColor="@color/teal_700"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvUserDepartment"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                tools:text = "IT"
+                android:textSize="20sp"
+                android:hint="Department"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@android:color/black"
+                android:background="@drawable/custom"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Joining Date"
+                android:textStyle="bold"
+                android:textColor="@color/teal_700"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvUserJoiningDtae"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@drawable/custom"
+                android:textSize="20sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@android:color/black"
+                tools:text="Joining date"
+                android:hint="Joining date"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Email Id"
+                android:textStyle="bold"
+                android:textColor="@color/teal_700"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvUserEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                tools:text = "Diksha@gmail.com"
+                android:textSize="20sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@android:color/black"
+                android:background="@drawable/custom"
+                android:hint="Email-id"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
