@@ -4,6 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.*
 import com.hackathon.cubicle.admin.ui.adapter.EachEmployeeAdapter
@@ -56,5 +59,27 @@ class AdminActivity : AppCompatActivity() {
             }
         })
     }
+
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        val inflater = menuInflater
+//        inflater.inflate(R.menu.home_menu, menu)
+//        return super.onCreateOptionsMenu(menu)
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.logout_btn -> {
+//                firebaseAuth.signOut().also {
+//                    Intent(this@MainActivity, LoginActivity::class.java).also {
+//                        startActivity(it)
+//                        finish()
+//                    }
+//                }
+//                return true
+//            }
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
+
 
 }

@@ -1,53 +1,42 @@
-package com.hackathon.cubicle.employee.ui.view.fragments
+package com.hackathon.cubicle.admin.ui.view.activity
 
+import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import com.github.mikephil.charting.data.PieData
-import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.hackathon.cubicle.R
-import com.hackathon.cubicle.databinding.FragmentDashboardBinding
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.hackathon.cubicle.databinding.ActivityEmployeeDetailsBinding
 import com.hackathon.cubicle.employee.data.model.TaskModel
-import com.hackathon.cubicle.employee.ui.view.activity.EmployeeActivity
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-
-class DashboardFragment : Fragment() {
-
+class EmployeeDetailsActivity : AppCompatActivity() {
     private val list = arrayListOf<TaskModel>()
-    private var _binding: FragmentDashboardBinding?=null
-    private val binding get() = _binding!!
     private lateinit var userID :String
-
+    private lateinit var binding: ActivityEmployeeDetailsBinding
     private val dbRef by lazy{
         FirebaseDatabase.getInstance().reference
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val view = binding.root
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityEmployeeDetailsBinding.inflate(layoutInflater)
+        val root = binding.root
+        setContentView(root)
+        userID = intent.getStringExtra("UserID").toString()
         showData()
-        return view;
     }
 
     private fun showData(){
-        val employeeActivity = activity as EmployeeActivity
-        userID = employeeActivity.getData()
-
         dbRef.child("Employee tasks").child(userID).addValueEventListener(object :
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -88,9 +77,9 @@ class DashboardFragment : Fragment() {
         if(workTime > 0L) pieValues.add(PieEntry(workTime.toFloat(), "Work"))
 
         val colors = listOf(
-            ContextCompat.getColor(requireContext(), R.color.red_500),
-            ContextCompat.getColor(requireContext(), R.color.orange_400),
-            ContextCompat.getColor(requireContext(), R.color.purple_400),
+            ContextCompat.getColor(baseContext, R.color.red_500),
+            ContextCompat.getColor(baseContext, R.color.orange_400),
+            ContextCompat.getColor(baseContext, R.color.purple_400),
         )
         val dataSet = PieDataSet(pieValues, "Chart")
         dataSet.selectionShift = 3f
@@ -99,7 +88,7 @@ class DashboardFragment : Fragment() {
 
         val data = PieData(dataSet)
         data.setValueTextSize(10f)
-        data.setValueTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+        data.setValueTextColor(ContextCompat.getColor(baseContext, R.color.white))
 
         binding.pieChartToday.apply {
             setData(data)
@@ -107,7 +96,7 @@ class DashboardFragment : Fragment() {
             description.isEnabled = false
             legend.isEnabled = false
             setDrawEntryLabels(true)
-            setEntryLabelColor(ContextCompat.getColor(requireContext(), R.color.white))
+            setEntryLabelColor(ContextCompat.getColor(baseContext, R.color.white))
             animateY(1000, com.github.mikephil.charting.animation.Easing.EaseInCubic)
         }
     }
@@ -133,9 +122,9 @@ class DashboardFragment : Fragment() {
         if(workTimePrev > 0L) pieValues.add(PieEntry(workTimePrev.toFloat(), "Work"))
 
         val colors = listOf(
-            ContextCompat.getColor(requireContext(), R.color.red_500),
-            ContextCompat.getColor(requireContext(), R.color.orange_400),
-            ContextCompat.getColor(requireContext(), R.color.purple_400),
+            ContextCompat.getColor(baseContext, R.color.red_500),
+            ContextCompat.getColor(baseContext, R.color.orange_400),
+            ContextCompat.getColor(baseContext, R.color.purple_400),
         )
         val dataSet = PieDataSet(pieValues, "Chart")
         dataSet.selectionShift = 3f
@@ -144,7 +133,7 @@ class DashboardFragment : Fragment() {
 
         val data = PieData(dataSet)
         data.setValueTextSize(10f)
-        data.setValueTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+        data.setValueTextColor(ContextCompat.getColor(baseContext, R.color.white))
 
         binding.pieChartYesterday.apply {
             setData(data)
@@ -152,7 +141,7 @@ class DashboardFragment : Fragment() {
             description.isEnabled = false
             legend.isEnabled = false
             setDrawEntryLabels(true)
-            setEntryLabelColor(ContextCompat.getColor(requireContext(), R.color.white))
+            setEntryLabelColor(ContextCompat.getColor(baseContext, R.color.white))
             animateY(1000, com.github.mikephil.charting.animation.Easing.EaseInCubic)
         }
     }
@@ -164,10 +153,9 @@ class DashboardFragment : Fragment() {
         return dateString
     }
 
-    private fun previousDate(): Calendar{
+    private fun previousDate(): Calendar {
         val cal = Calendar.getInstance()
         cal.add(Calendar.DATE, -1)
         return cal
     }
-
 }
