@@ -1,6 +1,5 @@
 package com.hackathon.cubicle.admin.ui.view.activity
 
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
