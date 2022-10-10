@@ -1,13 +1,18 @@
 package com.hackathon.cubicle.admin.ui.adapter
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.hackathon.cubicle.R
+import com.hackathon.cubicle.admin.ui.view.activity.EmployeeDetailsActivity
 import com.hackathon.cubicle.data.EachEmployeeData
 import com.hackathon.cubicle.employee.data.model.TaskModel
+import com.hackathon.cubicle.employee.ui.view.activity.EmployeeActivity
 import java.util.*
 
 class EachEmployeeAdapter(val items: List<EachEmployeeData>): RecyclerView.Adapter<EachEmployeeAdapter.EmployeeViewHolder>() {
@@ -47,6 +52,13 @@ class EachEmployeeAdapter(val items: List<EachEmployeeData>): RecyclerView.Adapt
             txtShowDept.text = item.department
             txtShowDOJ.text = item.date
             txtShowPass.text = item.password
+
+            val activity = itemView.context as Activity
+            itemView.setOnClickListener {
+                val intent = Intent(activity, EmployeeDetailsActivity::class.java)
+                intent.putExtra("UserID", item.number)
+                activity.startActivity(intent)
+            }
         }
     }
 

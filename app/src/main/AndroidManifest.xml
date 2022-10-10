@@ -10,9 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cubicle">
         <activity
-            android:name="com.hackathon.cubicle.employee.ui.view.activity.EmployeeActivity" />
-
-        <activity android:name=".general.LoginActivity"
+            android:name="com.hackathon.cubicle.admin.ui.view.activity.EmployeeDetailsActivity"
+            android:exported="false" />
+        <activity android:name="com.hackathon.cubicle.employee.ui.view.activity.EmployeeActivity" />
+        <activity
+            android:name=".general.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,11 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".general.SignUpActivity"/>
-
-        <activity android:name=".admin.ui.view.activity.AdminActivity"/>
-        <activity android:name=".admin.ui.view.activity.AddEmployeeDialog"/>
+        <activity android:name=".general.SignUpActivity" />
+        <activity android:name=".admin.ui.view.activity.AdminActivity" />
+        <activity android:name=".admin.ui.view.activity.AddEmployeeDialog" />
     </application>
 
 </manifest>
